@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Quote Generator</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <h1>Dynamic Quote Generator</h1>
+  <div class="top-bar">
+    <div>
+      <p>Select Category</p>
+      <select id="categoryFilter" onchange="filterQuotes()">
+        <option value="all">All Categories</option>
+        <!-- Dynamically populated categories -->
+      </select>
+    </div>
+    <button id="syncQuotes">Sync Quotes</button>
+    <button id="add-new-quote">Add New Quote</button>
+  </div>
+  <div id="quoteContainer">
+    <div id="quoteDisplay">Click the button to display a quote!</div>
+    <button id="ShowNewQuote">Show New Quote</button>
+  </div>
+
+  <div id="overlay">
+    <form id="addQuoteForm">
+      <i class='fas fa-times-circle' id="closeForm"></i>
+      <input id="newQuoteText" type="text" placeholder="Enter a new quote" required />
+      <input id="newQuoteCategory" type="text" placeholder="Enter quote category" required />
+      <button type="submit">Add Quote</button>
+    </form>
+  </div>
+
+  <div id="importQuote">
+    <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+    <button id="exportQuotes" onclick="exportToJsonFile()">Export Quotes</button>
+  </div>
+  
+  
+  <script src="script.js"></script>
+</body>
+</html>
